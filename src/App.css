@@ -29,6 +29,10 @@ li {
   margin: 0 0 20px 0;
 }
 
+.done {
+  text-decoration: line-through;
+}
+
 .App {
   font-family: "Archivo", sans-serif;
   text-align: center;

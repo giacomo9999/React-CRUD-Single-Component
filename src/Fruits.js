@@ -61,6 +61,18 @@ class Fruits extends Component {
     });
   }
 
+  onCompleteHandle() {
+    let id = arguments[0];
+    this.setState({
+      mockData: this.state.mockData.map(entry => {
+        if (entry.id === id) {
+          entry.done = true;
+        }
+        return entry;
+      })
+    });
+  }
+
   renderEditForm() {
     if (this.state.edit) {
       return (
@@ -87,7 +99,7 @@ class Fruits extends Component {
         </form>
         <ul>
           {this.state.mockData.map(entry => (
-            <li key={entry.id}>
+            <li key={entry.id} className={entry.done ? "done" : "incomplete"}>
               {entry.name}
               <div>
                 <button onClick={e => this.onDeleteHandle(entry.id, e)}>
@@ -98,7 +110,11 @@ class Fruits extends Component {
                 >
                   Edit
                 </button>
-                <button>Complete</button>
+                <button
+                  onClick={e => this.onCompleteHandle(entry.id, entry.name, e)}
+                >
+                  Complete
+                </button>
               </div>
             </li>
           ))}
