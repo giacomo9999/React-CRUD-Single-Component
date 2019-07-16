@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FruitForm from "./FruitForm";
 
 class Fruits extends Component {
   constructor(props) {
@@ -92,6 +93,7 @@ class Fruits extends Component {
   render() {
     return (
       <div>
+        <FruitForm formType="update" />
         {this.renderEditForm()}
         <form onSubmit={this.onSubmitHandle}>
           <input type="text" name="item" className="item" />
