@@ -43,7 +43,7 @@ class Fruits extends Component {
     e.target.item.value = "";
   }
 
-  onEditHandle(e) {
+  onEditHandle() {
     console.log("Handling edit...");
     this.setState({ edit: true, id: arguments[0], name: arguments[1] });
   }
